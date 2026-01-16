@@ -1,0 +1,119 @@
+---
+title: "From Past Earthquake Data to Early Earthquake Warnings"
+author: "Paul Raadnui"
+date: "2026-01-16"
+categories: [data science, machine learning, earthquakes]
+image: "eq-cartoon.jpg"
+description: "How data science and machine learning can help estimate earthquake risk using historical seismic data."
+draft: false
+bibliography: references.bib
+---
+
+As someone who had done undergraduate research on earthquakes, I had always wondered what it would feel like to experience an earthquake. Would it feel like an earthquake simulator I had been in? How long would it last? Little did I know that I would be experiencing a big one in 2025.
+
+Working on the 26th floor in Bangkok, Thailand on March 28th, 2025, I had just returned from lunch with my colleagues. As soon as I started working on my laptop, someone screamed, “Earthquake! Earthquake! Get under your table!” Initially, I thought it was a joke since I, who was born and raised in Bangkok, had never felt an earthquake there. Two seconds later, the building started shaking so violently that I could see the walls moving in waves, and all I could hear were items dropping from shelves and tables along with people screaming in fear. I was waiting for it to stop, but it seemed to keep going forever. However, it actually lasted only one minute, which felt like the longest minute of my life.
+
+As we evacuated the building after the shaking stopped, we learned that it was caused by a 7.7-magnitude earthquake with the epicenter in Myanmar that sent tremors all the way into Thailand, as illustrated in @fig-myanmar-eq. It was the most powerful quake to hit Myanmar and Thailand since 1912.
+
+::: {#fig-myanmar-eq}
+![Location of the earthquake epicenter and Bangkok](eq-myanmar.avif)
+:::
+
+Despite Bangkok being nearly 600 miles away from the epicenter, the city experienced widespread shaking and significant damage. The most severe destruction was the total collapse of a skyscraper under construction, as shown in the YouTube video below. According to World Vision, the death toll has reached 3,600, with over 5,000 people injured (@worldvision2025myanmar).
+
+<div style="text-align:center;">
+  <iframe
+    width="700"
+    height="400"
+    src="https://www.youtube.com/embed/I8av8DQ2AIA"
+    title="YouTube video player"
+    frameborder="0"
+    allowfullscreen>
+  </iframe>
+</div>
+
+At this point, you might be wondering: would big earthquakes like this be possible to predict in advance? Could AI help assess earthquake risk so that governments can warn people beforehand to minimize losses? Before we get to that, let’s make sure we are all on the same page about how earthquakes happen.
+
+# How Earthquakes Happen
+
+Earthquakes happen when stress builds up between large pieces of the Earth’s crust, known as tectonic plates, and is suddenly released. This energy release leads to ground shaking, and the magnitude of an earthquake depends on how much energy is released.
+
+To simplify it further, @fig-simplified-earthquake (@bbcbitesizeearthquake) shows how earthquakes start underground, where rocks suddenly shift and release energy. This energy travels outward as waves through the ground, causing the surface to shake, with the strongest shaking usually happening near the epicenter.
+
+::: {#fig-simplified-earthquake}
+![Simplified illustration of how earthquakes occur](simplified-eq.png)
+:::
+
+The Earth comprises more than seven major tectonic plates and up to 50 minor tectonic plates. All tectonic plates move in different directions at rates of only a few centimeters per year. As they keep moving, stress builds up between adjacent plates, and once it is released, an earthquake occurs. Believe it or not, earthquakes happen every day across the Earth. @fig-usgs shows all earthquakes of magnitude 4.5 or more in the past 30 days. Feel free to explore this USGS dashboard to see when and where each earthquake occurred.
+
+::: {#fig-usgs}
+![Earthquakes of magnitude 4.5 or more in the past 30 days (as of January 14th, 4:00 PM PDT)](usgs-20260114.png)
+:::
+
+You can explore recent seismic activity using the
+[interactive USGS earthquake dashboard](https://earthquake.usgs.gov/earthquakes/map/?extent=-72.60712,-153.98438&extent=78.13449,250.3125&range=month&magnitude=4.5&baseLayer=satellite&list=false&settings=true).
+
+# Can We Predict Earthquakes?
+
+Despite these processes being studied for decades, predicting exactly when a future earthquake will occur is still impossible. We do not know precisely when accumulated subsurface stress will be released, but we do know where earthquakes are more likely to happen. This is where data science can be valuable.
+
+So, can machine learning predict earthquakes? The honest answer is no, or at least not with certainty. However, machine learning can do something just as valuable: help us understand when the risk is higher and give people time to prepare.
+
+## A Real-World Example of How ML Models Can Help
+
+One academic study (@mukherjee2025himalayan) used machine learning algorithms to estimate earthquake likelihoods, making it worth discussing from a data science perspective. This approach is similar to how we treat many real-world classification problems: we may never make perfect predictions, but we can estimate probabilities. Rather than asking, “When and where will the next earthquake happen?”, the researchers asked, “Based on patterns in past earthquakes, how likely is a large earthquake to occur in a certain area?”
+
+::: {#fig-himalayan}
+![Earthquake events used in the Himalayan ML study (1803–2023)](himalayan-eq.png)
+:::
+
+The likelihood of earthquakes with magnitudes of 4.0, 4.5, 5.0, and 5.5 occurring 7, 10, 15, and 30 days ahead was assessed using different machine learning models. Earthquake data from events between 1803 and 2023 were used, as shown in @fig-himalayan.
+
+# Combining Different Signals to Increase Predictive Power
+
+When signals are treated independently, they are often weak predictors of earthquakes. However, combining multiple features reveals patterns that tend to occur before earthquakes, such as changes in energy release, depth, and seismic activity rates.
+
+To determine which signals mattered most, the authors used Boruta-SHAP, a feature-selection method that balances predictive performance with interpretability.
+
+### A Simple Way to Think About Boruta-SHAP
+
+Suppose you are trying to predict whether students will pass a course using features such as GPA, quiz scores, attendance, weight, and height. Boruta-SHAP asks a simple question for each feature: “If I randomly shuffled this variable, would the model perform worse?” If the answer is yes, the variable stays. If not, it is likely just noise and can be removed. In this case, weight and height would have little relevance and would be eliminated.
+
+Similarly, this earthquake study found that energy-related features, temporal seismic patterns, and depth-related indicators were consistently the most important. This also explains why nonlinear models such as ANN and XGBoost performed best, as they are better at capturing interactions between these signals.
+
+# Why This Matters Outside the Model
+
+::: {#fig-accuracy}
+![Accuracy scores on the test dataset obtained from six different ML models](accuracy.png)
+:::
+
+Although ANN and XGBoost achieved accuracy scores of approximately 80–95%, as shown in @fig-accuracy, the most important takeaway is not the accuracy itself, but how the results can be used. Even a few days of elevated risk awareness can:
+
+- Help governments prepare emergency responses
+- Guide infrastructure inspections
+- Improve public readiness
+- Complement real-time seismic early warning systems
+
+Early alerts may provide only seconds or minutes of warning, but they can save lives. Countries like Japan, where earthquakes occur frequently, have already implemented such systems, which have been shown to reduce damage and improve safety (@foxnews2017earlywarning). Studies like this suggest that longer-term machine learning–based risk assessments could further strengthen these efforts.
+
+::: {#fig-eq-warning}
+![Early Earthquake Warning System](eq-warning.png)
+:::
+
+# Key Takeaways
+
+- Earthquakes cannot be predicted exactly, but their likelihood can be estimated.
+- Machine learning excels at detecting subtle, nonlinear patterns in seismic history.
+- Feature quality often matters more than model complexity, with ANN and XGBoost performing best.
+
+Machine learning models still have important limitations. They rely on historical data that may not fully represent future conditions and may produce false alarms or missed events. ML should support, not replace, geophysical expertise, which remains essential.
+
+Even imperfect predictions can reduce damage and save lives. In summary, while data science cannot predict earthquakes with certainty, it improves our ability to assess risk, issue early warnings, and take preventive measures so that societies are more resilient to future earthquakes.
+
+# Final Thoughts
+
+Thinking back to my experience in Bangkok, I often wonder what might have happened if a machine learning–based warning system had alerted people in Thailand and Myanmar days in advance. Early warnings could have reduced casualties and mitigated some of the damage.
+
+As data scientists, we are often asked to build models for systems we do not fully understand. Earthquake likelihood prediction is one such example. This study shows that responsible machine learning is not about claiming certainty, but about providing better information under uncertainty so we can prepare for what is to come.
+
+And often, that is enough to make a real-world difference.

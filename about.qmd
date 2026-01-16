@@ -1,0 +1,26 @@
+---
+title: "About"
+image: Paul.jpg
+about:
+  template: jolla
+  links:
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/paulraadnui
+    - icon: github
+      text: Github
+      href: https://github.com/sapolraadnui
+
+---
+
+Hi all!
+
+I am a Data Scientist with 5+ years of industry experience applying machine learning, statistical analysis, and Python-based analytics to large, complex datasets.
+
+My background spans data science and applied geoscience, where I have worked extensively with high-dimensional, spatial, and temporal data. This experience has strengthened my ability to work end-to-end, from data preparation and feature engineering to model development, evaluation, and communicating insights that support decision-making.
+
+In my role at PTT Exploration and Production (PTTEP), I have built reproducible data pipelines, applied supervised and unsupervised learning techniques, developed interactive dashboards, and led data enablement initiatives by training cross-functional teams in Python and data analytics.
+
+While my domain experience includes geospatial and geoscience applications, my focus is on generalizable data science skills that translate across industries, including finance and technology.
+
+I am currently pursuing a Master of Data Science (MDS) at the University of British Columbia (UBC) and am interested in Data Scientist roles focused on impactful, real-world analytics problems.

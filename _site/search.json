@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hi all!\nI am a Data Scientist with 5+ years of industry experience applying machine learning, statistical analysis, and Python-based analytics to large, complex datasets.\nMy background spans data science and applied geoscience, where I have worked extensively with high-dimensional, spatial, and temporal data. This experience has strengthened my ability to work end-to-end, from data preparation and feature engineering to model development, evaluation, and communicating insights that support decision-making.\nIn my role at PTT Exploration and Production (PTTEP), I have built reproducible data pipelines, applied supervised and unsupervised learning techniques, developed interactive dashboards, and led data enablement initiatives by training cross-functional teams in Python and data analytics.\nWhile my domain experience includes geospatial and geoscience applications, my focus is on generalizable data science skills that translate across industries, including finance and technology.\nI am currently pursuing a Master of Data Science (MDS) at the University of British Columbia (UBC) and am interested in Data Scientist roles focused on impactful, real-world analytics problems."
+  },
+  {
+    "objectID": "posts/past-data-to-early-warning/index.html",
+    "href": "posts/past-data-to-early-warning/index.html",
+    "title": "From Past Earthquake Data to Early Earthquake Warnings",
+    "section": "",
+    "text": "As someone who had done undergraduate research on earthquakes, I had always wondered what it would feel like to experience an earthquake. Would it feel like an earthquake simulator I had been in? How long would it last? Little did I know that I would be experiencing a big one in 2025.\nWorking on the 26th floor in Bangkok, Thailand on March 28th, 2025, I had just returned from lunch with my colleagues. As soon as I started working on my laptop, someone screamed, “Earthquake! Earthquake! Get under your table!” Initially, I thought it was a joke since I, who was born and raised in Bangkok, had never felt an earthquake there. Two seconds later, the building started shaking so violently that I could see the walls moving in waves, and all I could hear were items dropping from shelves and tables along with people screaming in fear. I was waiting for it to stop, but it seemed to keep going forever. However, it actually lasted only one minute, which felt like the longest minute of my life.\nAs we evacuated the building after the shaking stopped, we learned that it was caused by a 7.7-magnitude earthquake with the epicenter in Myanmar that sent tremors all the way into Thailand, as illustrated in Figure 1. It was the most powerful quake to hit Myanmar and Thailand since 1912.\nDespite Bangkok being nearly 600 miles away from the epicenter, the city experienced widespread shaking and significant damage. The most severe destruction was the total collapse of a skyscraper under construction, as shown in the YouTube video below. According to World Vision, the death toll has reached 3,600, with over 5,000 people injured (World Vision (2025)).\nAt this point, you might be wondering: would big earthquakes like this be possible to predict in advance? Could AI help assess earthquake risk so that governments can warn people beforehand to minimize losses? Before we get to that, let’s make sure we are all on the same page about how earthquakes happen."
+  },
+  {
+    "objectID": "posts/past-data-to-early-warning/index.html#a-real-world-example-of-how-ml-models-can-help",
+    "href": "posts/past-data-to-early-warning/index.html#a-real-world-example-of-how-ml-models-can-help",
+    "title": "From Past Earthquake Data to Early Earthquake Warnings",
+    "section": "A Real-World Example of How ML Models Can Help",
+    "text": "A Real-World Example of How ML Models Can Help\nOne academic study (Mukherjee (2025)) used machine learning algorithms to estimate earthquake likelihoods, making it worth discussing from a data science perspective. This approach is similar to how we treat many real-world classification problems: we may never make perfect predictions, but we can estimate probabilities. Rather than asking, “When and where will the next earthquake happen?”, the researchers asked, “Based on patterns in past earthquakes, how likely is a large earthquake to occur in a certain area?”\n\n\n\n\n\n\nEarthquake events used in the Himalayan ML study (1803–2023)\n\n\n\n\nFigure 4\n\n\n\nThe likelihood of earthquakes with magnitudes of 4.0, 4.5, 5.0, and 5.5 occurring 7, 10, 15, and 30 days ahead was assessed using different machine learning models. Earthquake data from events between 1803 and 2023 were used, as shown in Figure 4."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Paul's Blog",
+    "section": "",
+    "text": "Welcome! This blog explores data science, machine learning, and real-world problems such as earthquake risk and early warning systems.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFrom Past Earthquake Data to Early Earthquake Warnings\n\n\n\ndata science\n\nmachine learning\n\nearthquakes\n\n\n\nHow data science and machine learning can help estimate earthquake risk using historical seismic data.\n\n\n\n\n\nJan 16, 2026\n\n\nPaul Raadnui\n\n\n\n\n\nNo matching items"
+  }
+]
